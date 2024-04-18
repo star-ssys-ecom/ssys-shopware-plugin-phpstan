@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+set -e
+
 PLUGIN_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)/.."
 SHOP_DIR=${PROJECT_ROOT:=$(echo "$PLUGIN_DIR" | rev | cut -d'/' -f6- | rev)}
+
+echo "Plugin dir: $PLUGIN_DIR"
+echo "Shop dir: $SHOP_DIR"
 
 DEVOPS_DIR="$SHOP_DIR/vendor/shopware/core/DevOps"
 if [[ ! -d "$DEVOPS_DIR" ]]; then
