@@ -2,12 +2,12 @@
 
 set -e
 
-cd "$(dirname "$1")"
+cd "$1"
 
 PLUGIN_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)/.."
 SHOP_DIR=${PROJECT_ROOT:=$(echo "$PLUGIN_DIR" | rev | cut -d'/' -f6- | rev)}
 
-echo "Current dir: $(pwd)"
+echo "Current dir: $1"
 echo "Plugin dir: $PLUGIN_DIR"
 echo "Shop dir: $SHOP_DIR"
 
