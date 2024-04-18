@@ -2,6 +2,8 @@
 
 set -e
 
+cd "$(dirname "$0")"
+
 PLUGIN_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)/.."
 SHOP_DIR=${PROJECT_ROOT:=$(echo "$PLUGIN_DIR" | rev | cut -d'/' -f6- | rev)}
 
@@ -34,4 +36,4 @@ if [[ ! -d "$SHOP_DIR/var/cache/phpstan_dev" ]]; then
 fi
 
 cd $PLUGIN_DIR
-$SHOP_DIR/vendor/bin/phpstan analyse "$@"
+$SHOP_DIR/vendor/bin/phpstan analyse --no-interaction
